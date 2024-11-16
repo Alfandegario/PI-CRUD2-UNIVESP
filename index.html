@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD com Firebase</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> <!-- Inclui a biblioteca Boxicons -->
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Cadastro de Clientes</span>
+      <div class="actions">
+        <button onclick="openModal()" id="new">Incluir</button>
+        <input type="text" id="searchInput" placeholder="Pesquisar por nome...">
+        <button id="btnSearch">Pesquisar</button>
+      </div>
+    </div>
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" required />
+          <label for="m-email">Email</label>
+          <input id="m-email" type="email" required />
+          <label for="m-cpf">CPF</label>
+          <input id="m-cpf" type="number" required />
+          <label for="m-telefone">Telefone</label>
+          <input id="m-telefone" type="tel" required />
+          <button id="btnSalvar">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Adicione o SDK do Firebase aqui -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script>
+    // Configuração do Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2qmcGuhQwJCavh_e4C3UWPIolCVJXHbM",
+      authDomain: "crud-pi2.firebaseapp.com",
+      projectId: "crud-pi2",
+      storageBucket: "crud-pi2.appspot.com",
+      messagingSenderId: "454219272394",
+      appId: "1:454219272394:web:82dbe924867869d94ce433",
+      measurementId: "G-9BXXR617LN"
+    };
+    // Inicializar o Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
